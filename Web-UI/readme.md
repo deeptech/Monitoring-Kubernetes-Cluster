@@ -7,7 +7,9 @@ Dashboard is a web-based Kubernetes user interface. We can use Dashboard to get 
     `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml`
 
 2. Run `kubectl apply -f dashboard-adminuser.yml` to create a new user.
-3. Run `kubectl proxy` to access the Dashboard UI.
+3. Run `kubectl proxy` to access the Dashboard UI. or  kubectl proxy --address 0.0.0.0 --accept-hosts '.*'
+. Note that this is a possible security vulnerability as you are accepting all traffic (AWS firewall rules) and also all connections for your kubectl proxy (--address 0.0.0.0 --accept-hosts '.*') so please narrow it down or use different approach. If you have more questions feel free to ask.
+
 4. Visit http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 5. Get a token by running the following command and copy the token into your clipboard.
 
