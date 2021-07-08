@@ -6,7 +6,7 @@
    
    `kubectl get nodes --selector=kubernetes.io/role!=master -o jsonpath={.items[*].status.addresses[?\(@.type==\"InternalIP\"\)].address}`
    
-5. Visit http://[NODEIP]:30000 to view Prometheus.
+5. Visit http://[NODEIP]:30000 to view Prometheus. or isit http://[NODEIP]:32000/dashboard to view grafan.
 6. Click on Graph. Select a metric from the drop-down (next to the Execute button) and then click Execute. You can switch between the Graph view and Console view.
 
 
