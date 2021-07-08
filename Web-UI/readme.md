@@ -2,6 +2,9 @@
 Dashboard is a web-based Kubernetes user interface. We can use Dashboard to get an overview of applications running on our cluster, as well as for creating or modifying individual Kubernetes resources.Dashboard also provides information on the state of Kubernetes resources in your cluster and on any errors that may have occurred.
 
 #### Configuration Steps:
+
+or https://www.programmersought.com/article/63956807837/
+
 1. Deploy the Kubernetes Dashboard UI:
 
     `kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml`
