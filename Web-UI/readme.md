@@ -4,6 +4,7 @@ Dashboard is a web-based Kubernetes user interface. We can use Dashboard to get 
 #### Configuration Steps:
 
 or https://www.programmersought.com/article/63956807837/
+bypass authentication : https://devblogs.microsoft.com/premier-developer/bypassing-authentication-for-the-local-kubernetes-cluster-dashboard/
 
 1. Deploy the Kubernetes Dashboard UI:
 
