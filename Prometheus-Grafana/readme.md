@@ -2,7 +2,19 @@
 
 1. Run `kubectl create namespace monitoring` to create a `monitoring` namespace.
 2. Run `kubectl create -f ./ -R` to get kube-state-metrics, Grafana, and Prometheus resources in place.
-3. 
+3. To install the Metric-Server, first download this components.yaml file locally using:
+
+wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+Use any editor of your choice to open and modify the components.yaml file:
+
+vim components.yaml
+
+Modify the file in the vim editor (or your choice) and add this under deployment --> containers --> args:
+
+--kubelet-insecure-tls
+kubectl apply -f ./ -R
+
 4. Check NODEIP using: 
    
    `kubectl get nodes --selector=kubernetes.io/role!=master -o jsonpath={.items[*].status.addresses[?\(@.type==\"InternalIP\"\)].address}`
@@ -14,7 +26,8 @@ NAME                                     READY   STATUS    RESTARTS   AGE
 grafana-7f4d85b7c7-9trv2                 1/1     Running   0          17m
 prometheus-deployment-599bbd9457-ddzgj   1/1     Running   0          17m
 
-5. Visit http://[NODEIP]:30000 to view Prometheus. or isit http://[NODEIP]:32000/dashboard to view grafan.
+4.1 kubectl port-forward prometheus-deployment-599bbd9457-ddzgj 8080:9090 -n monitoring            .... to check port refer prometheus.deployment.yml
+5. Visit http://[NODEIP]:30000 or http://127.0.0.1:8080/ to view Prometheus. or isit http://[NODEIP]:32000/dashboard to view grafan.
 6. Click on Graph. Select a metric from the drop-down (next to the Execute button) and then click Execute. You can switch between the Graph view and Console view.
 
 
